@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>AI Tinkering Playbook – The Whats</title>
   <style>
     .icon-head{display:flex; align-items:center; gap:8px}
@@ -24,6 +25,10 @@
       --max: 980px;
     }
     *{box-sizing:border-box}
+    .wrap{max-width: var(--max); margin: 0 auto; padding: 18px 16px;}
+    header .wrap{padding-bottom: 8px;}
+    main.wrap{padding-top: 0;}
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -83,7 +88,13 @@
     @media (prefers-reduced-motion: reduce){
       body::before, body::after{ animation:none !important; }
       .panel{ animation:none !important; }
-      .hero{
+      .hero{ animation:none !important; }
+      .cartoon{ animation:none !important; }
+      .rocket svg{ animation:none !important; }
+      button{ transition:none !important; }
+    }
+
+    .hero{
       display:grid;
       gap:14px;
       padding: 18px;
@@ -146,7 +157,7 @@
     }
     .grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1fr;
       gap: 16px;
       padding: 0 16px 26px;
     }
@@ -232,6 +243,11 @@
       color: var(--text);
       margin: 12px 0;
     }
+
+    .choices{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .choice{border-radius: 14px; padding: 10px 12px}
+    .choice:hover{box-shadow: 0 0 0 3px rgba(47,210,255,.10) inset}
+    .choice:focus{outline: none; box-shadow: 0 0 0 4px rgba(47,210,255,.18)}
 
     .list{margin: 10px 0 0; padding: 0 0 0 18px; color: var(--muted)}
     .list li{margin: 6px 0}
@@ -344,7 +360,7 @@
     a:hover{text-decoration: underline}
   </style>
 </head>
-<body>
+<body style="min-height:100vh;">
   <header>
     <div class="wrap hero">
       <!-- Cartoon banner -->
@@ -367,7 +383,7 @@
       <div class="tabs" role="tablist" aria-label="Sections">
         <button role="tab" id="tab-ai" aria-controls="panel-ai" aria-selected="true" aria-pressed="true">1) What is AI?</button>
         <button role="tab" id="tab-tinker" aria-controls="panel-tinker" aria-selected="false" aria-pressed="false">2) What is AI tinkering?</button>
-        <button role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false" aria-pressed="false">3) Quick Check</button>
+        <button role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false" aria-pressed="false">3) Game</button>
       </div>
     </div>
   </header>
@@ -555,46 +571,11 @@
       </div>
     </section>
 
-    <aside class="card" aria-label="Side panel">
-      <div class="hd">
-        <div>
-          <strong>Facilitator Notes</strong>
-          <div class="kicker">Optional: for PD / lab induction</div>
-        </div>
-        <div class="pill"><span aria-hidden="true">🧰</span><span>Ready-to-use</span></div>
-      </div>
-      <div class="bd">
-        <details open>
-          <summary><strong>Suggested flow (10 mins)</strong></summary>
-          <ul class="list">
-            <li>2 mins: “What is AI?” — common myths + model.</li>
-            <li>4 mins: “AI tinkering” — loop steps + examples.</li>
-            <li>3 mins: Play <em>AI Tinkering Dash</em>.</li>
-            <li>1 min: Debrief using the reflection prompts.</li>
-          </ul>
-        </details>
-
-        <details style="margin-top:12px">
-          <summary><strong>Fast examples teachers can try</strong></summary>
-          <ul class="list">
-            <li>Rewrite a worksheet question at P2 / P4 / P6 levels.</li>
-            <li>Generate feedback stems for composition marking.</li>
-            <li>Create a rubric checklist for a project.</li>
-            <li>Brainstorm alternative misconceptions (distractors).</li>
-          </ul>
-          <div class="mini">All examples should be checked and edited by the teacher.</div>
-        </details>
-
-        <details style="margin-top:12px">
-          <summary><strong>Keyboard-friendly</strong></summary>
-          <p class="mini">Use <span class="kbd">Tab</span> to move between buttons. Use <span class="kbd">Enter</span> to activate.</p>
-        </details>
-      </div>
-    </aside>
+    
   </main>
 
-  <footer class="wrap">
-    Built as a single-file interactive. You can paste it into a Google Site via an embed, or host it anywhere.
+  <footer class="wrap" style="padding-bottom:80px">
+    Built as a single-file interactive. Host it on GitHub Pages and embed into Google Sites <em>by URL</em>.
   </footer>
 
   <script>
